@@ -1,4 +1,4 @@
-# Create your views here.
+#12/20/2011 Author: Nick Moloney
 from django import forms
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
@@ -19,13 +19,14 @@ def saveUploadedData(f):
 			customers = Customer.objects.filter(name__exact=items[0])
 			c = None
 			#if a customer exists with the same name, use that, otherwise create a new one
+			#and save it to the database
 			if len(customers) == 0:
 				c = Customer(name=items[0])
 				c.save()
 			else:
 				c = customers[0]
 			
-			#get/create Merchant
+			#get/create Merchant and save to database
 			merchants = Merchant.objects.filter(name=items[5], address=items[4])
 			m = None
 			if len(merchants) == 0:
@@ -34,7 +35,7 @@ def saveUploadedData(f):
 			else:
 				m = merchants[0]
 			
-			#get/create product
+			#get/create product and save to database
 			productPrice = float(items[2])
 			products = Product.objects.filter(description=items[1], price=productPrice, merchant=m)
 			p = None
