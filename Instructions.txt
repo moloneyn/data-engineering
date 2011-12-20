@@ -1,0 +1,8 @@
+Install Django if necessary: https://www.djangoproject.com/download/
+Unzip the files to a location you have access to
+Change DIRECTORY path in settings.py to the directory the files were unzipped to ending with the livingsocialchallenge folder
+CD into directory livingsocialchallenge and run 'python manage.py syncdb' (You do not need to create a superuser)
+In the same folder run 'python manage.py runserver'
+Go to 127.0.0.1:8000 in a browser
+Choose the file you'd like to upload and click upload
+The gross revenue will be displayed once calculations are completed

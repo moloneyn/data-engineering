@@ -1,0 +1,16 @@
+<HTML>
+	<HEAD>
+		<Title>Upload Form</Title>
+	</HEAD>
+	<BODY>
+		<H1>Upload Form</H1>
+
+		{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+		<FORM action="/upload/" enctype="multipart/form-data" method="post">
+			{% csrf_token %}
+			{{ form }}
+			<input type="submit" value="Upload" />
+		</FORM>
+	</BODY>
+</HTML>
